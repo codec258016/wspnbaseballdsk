@@ -19,6 +19,8 @@ wspndskeyer.html 수정 시 서버 껏다 켜야 적용
 이때 WSPN DSK CONTROLLER가 새로 열리는데 기존에 열려있던거 새로고침 후 사용도 가능
 
 ## WSPN DSK CONTROLLER 작동되는 기능
+![image](https://github.com/user-attachments/assets/2765c470-05bb-4a3a-b3d1-851253eeb4b3)
+
 1. CODER ON/OFF 클릭 시 파란색 직사각형이 fade-in 형태로 나타남/한번 더 누르면 fade-in 형태로 사라짐
 2. 1루 클릭 시 빨간색 직사각형이 fade-in 형태로 나타남/한번 더 누르면 fade-in 형태로 사라짐
 
