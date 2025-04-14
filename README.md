@@ -15,6 +15,9 @@ OBS에서 사용 시 소스 영역에서 '+' > '브라우저' 선택 후
 
 WSPN DSK CONTROLER에 있는 'CG창 열기' 클릭 시 ``` http://localhost:5000/wspndskeyer.html ``` 이 브라우저에서 열림
 
+wspndskeyer.html 수정 시 서버 껏다 켜야 적용
+이때 WSPN DSK CONTROLER가 새로 열리는데 기존에 열려있던거 새로고침 후 사용도 가능
+
 ## WSPN DSK CONTROLER 작동되는 기능
 1. CODER ON/OFF 클릭 시 파란색 직사각형이 fade-in 형태로 나타남/한번 더 누르면 fade-in 형태로 사라짐
 2. 1루 클릭 시 빨간색 직사각형이 fade-in 형태로 나타남/한번 더 누르면 fade-in 형태로 사라짐
@@ -27,3 +30,5 @@ WSPN DSK CONTROLER에 있는 'CG창 열기' 클릭 시 ``` http://localhost:5000
 ## 로드맵
 1. 점수, 팀명 기입 후 GO버튼 클릭 시 WSPN DSK > coder에 적용되도록 제작
 2. coder 디자인 및 베이스 표시 제작
+
+3. 번거롭게 안 들어가고 딸깍하면 자동 실행되는 시스템 제작
