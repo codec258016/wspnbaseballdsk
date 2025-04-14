@@ -1,0 +1,25 @@
+.blue-rectangle{
+    width: 450px;
+    height: 130px;
+    margin: 40px;
+    background-color: blue;
+    opacity: 0;
+    transition: opacity 0.1s;
+}
+
+.red-rectangle{
+  width: 450px;
+  height: 130px;
+  margin: 40px;
+  background-color: red;
+  opacity: 0;
+  transition: opacity 0.1s;
+}
+
+.fade-in {
+    opacity: 1;
+  }
+
+.fade-out {
+opacity: 0;
+}

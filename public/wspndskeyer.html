@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="/src/icon/wspnicon.ico">
+  <title>WSPN DSK</title>
+  <link rel="stylesheet" href="css/keyer.css" />
+</head>
+<body>
+  <div id="coder"></div>
+  <div id="base1"></div>
+
+  <script>
+    const ws = new WebSocket('ws://localhost:5000');
+    let coderRectangle = null;
+    let base1Rectangle = null;
+    let base2Rectangle = null;
+
+    ws.onmessage = (event) => {
+      const msg = event.data;
+      const coder = document.getElementById('coder');
+      const base1 = document.getElementById('base1');
+
+      if (msg === 'coder-on') {
+        const div = document.createElement('div');
+        div.className = 'blue-rectangle';
+        coder.appendChild(div);
+        coderRectangle = div;
+
+        // 강제로 리플로우를 유도하여 트랜지션이 작동하게 함
+        void div.offsetWidth;
+
+        div.classList.add('fade-in');
+      }
+
+      //coder
+      if (msg === 'coder-off') {
+        if (coderRectangle) {
+          coderRectangle.classList.remove('fade-in');
+          coderRectangle.classList.add('fade-out');
+
+          // ✨ 애니메이션 후 제거
+          setTimeout(() => {
+            coder.removeChild(coderRectangle);
+            coderRectangle = null;
+          }, 500); // transition 시간과 일치
+        }
+      }
+
+      //base1
+      if (msg === 'base1-on') {
+        const div = document.createElement('div');
+        div.className = 'red-rectangle';
+        base1.appendChild(div);
+        base1Rectangle = div;
+
+        // 강제로 리플로우를 유도하여 트랜지션이 작동하게 함
+        void div.offsetWidth;
+
+        div.classList.add('fade-in');
+      }
+
+      if (msg === 'base1-off') {
+        if (base1Rectangle) {
+          base1Rectangle.classList.remove('fade-in');
+          base1Rectangle.classList.add('fade-out');
+
+          // ✨ 애니메이션 후 제거
+          setTimeout(() => {
+            base1.removeChild(base1Rectangle);
+            base1Rectangle = null;
+          }, 500); // transition 시간과 일치
+        }
+      }
+
+
+      //base2
+      if (msg === 'base2-on') {
+        const div = document.createElement('div');
+        div.className = 'red-rectangle';
+        base1.appendChild(div);
+        base2Rectangle = div;
+
+        // 강제로 리플로우를 유도하여 트랜지션이 작동하게 함
+        void div.offsetWidth;
+
+        div.classList.add('fade-in');
+      }
+
+      if (msg === 'base2-off') {
+        if (base2Rectangle) {
+          base2Rectangle.classList.remove('fade-in');
+          base2Rectangle.classList.add('fade-out');
+
+          // ✨ 애니메이션 후 제거
+          setTimeout(() => {
+            base1.removeChild(base2Rectangle);
+            base2Rectangle = null;
+          }, 500); // transition 시간과 일치
+        }
+      }
+    };
+  </script>
+</body>
+</html>
