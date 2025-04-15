@@ -7,20 +7,20 @@
 
 .coder{
   width: 500px;
-  height: 100px;
+  height: 105px;
   margin: 40px;
   background-color: #26b195;
   border-radius: 5px;
-  opacity: 0;
+  opacity: 1;
   transition: opacity 0.3s;
 }
 .tnsc{
-  width: 500px;
+  width: 630px;
   height: 80px;
   background-color: #30ceae;
   display: flex;
   border-bottom: solid 2px #0d5042;
-  border-radius: 5px 5px 0 0;
+  border-radius: 5px 5px 5px 0;
   overflow: hidden;
 }
 .away-tn, .home-tn{
@@ -60,13 +60,56 @@
   color: #45ddbf;
 }
 
-.red-rectangle{
-  width: 450px;
-  height: 130px;
-  margin: 40px;
-  background-color: red;
-  opacity: 0;
-  transition: opacity 0.1s;
+.matchstate{
+  width: 130px;
+  height: 80px;
+  background-color: #0d5042;
+  display: flex;
+}
+
+.inning{
+  width: 30px;
+  margin: auto 0 auto 10px;
+}
+.top{
+  width: 0px;
+  height: 0px;
+  border-bottom: calc( 8px * 1.732 ) solid #156958;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  margin: auto;
+}
+.btm{
+  width: 0px;
+  height: 0px;
+  border-bottom: calc( 8px * 1.732 ) solid #156958;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  rotate: 180deg;
+  margin: 0 auto;
+}
+#innum{
+  font-family: 'Paperlogy-8ExtraBold';
+  color: #fff;
+  text-align: center;
+  margin: 5px;
+}
+
+.base{
+  width: 100px;
+  margin: auto;
+}
+.base1, .base2, .base3{
+  width: 20px;
+  height: 20px;
+  background-color: #1d836e;
+  rotate: 45deg;
+  margin: 0px auto;
+}
+.base23{
+  width: 90px;
+  display: flex;
+  margin: 0 6px;
 }
 
 .fade-in {
