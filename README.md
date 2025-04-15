@@ -21,7 +21,11 @@ wspndskeyer.html 수정 시 서버 재시작 해야 적용.
 이때 WSPN DSK CONTROLLER가 새로 열리는데 기존에 열려있던거 새로고침 후 사용도 가능
 
 ## WSPN DSK CONTROL에서 현재 작동되는 기능
+
+WSPN DSK CONTROL
 ![image](https://github.com/user-attachments/assets/dbaf3422-43bc-4d70-b773-8e77237bcb0f)
+WSPN DSK 코더
+![image](https://github.com/user-attachments/assets/61dd75c9-431b-49fe-810f-d9ed1a1b287d)
 
 1. CODER ON/OFF 시 코더 페이드 인 / 아웃
 2. 점수, 팀명 입력 후 GO 버튼을 누르면 실시간으로 코더에 적용
