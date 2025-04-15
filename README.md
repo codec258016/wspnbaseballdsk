@@ -40,6 +40,7 @@ WSPN DSK 코더
 3. 삼진 아웃K와 노아웃K, 홈런 애니메이션 제작 (영상으로 만들지, css 애니메이션 사용할 지 미정)
 4. script 영역 js파일로 분리: 스크립트 길어지면서 관리효율 떨어짐
 6. css 최적화: class로 UI 요소 규격화 후html에서 class 두개 사용
+  
    (ex. class="coder-btn 15px")
 
 
