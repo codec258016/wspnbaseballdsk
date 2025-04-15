@@ -5,6 +5,7 @@ VSC에 ``` npm init ``` 으로 npm 설치 후 ``` npm install express ``` 로  n
 ## 실행방법
 
 터미널에서 ``` npm server.js ``` 실행하면 자동으로 WSPN DSK CONTROLLER 열림
+
 OBS에서 사용 시 소스 영역에서 '+' > '브라우저' 선택 후 
 
 - URL: ``` http://localhost:5000/wspndskeyer.html ```
@@ -16,6 +17,7 @@ OBS에서 사용 시 소스 영역에서 '+' > '브라우저' 선택 후
 WSPN DSK CONTROLLER에 있는 'CG창 열기' 클릭 시 ``` http://localhost:5000/wspndskeyer.html ``` 이 브라우저에서 열림
 
 wspndskeyer.html 수정 시 서버 재시작 해야 적용.
+
 이때 WSPN DSK CONTROLLER가 새로 열리는데 기존에 열려있던거 새로고침 후 사용도 가능
 
 ## WSPN DSK CONTROLLER 작동되는 기능
