@@ -37,7 +37,7 @@
     <button class="K" onclick="toggleNoOutK()">No Out K<br><b>3sec Auto</b></button>
     <button class="homerun" onclick="toggleHomrun()">Home-run<br><b>3sec Auto</b></button>
     <button class="homerun" onclick="toggle2Homrun()">2-Home-run<br><b>3sec Auto</b></button>
-    <button class="homerun" onclick="toggle3Homrun()">3-Home-run<br><b>3sec Auto</b></button>
+    <button class="homerun threehomerun" onclick="toggle3Homrun()">3-Home-run<br><b>3sec Auto</b></button>
   </div>
   <h1 class="title">Event Log</h1>
   <div id="logArea">
@@ -47,66 +47,66 @@
   <script>
     const ws = new WebSocket('ws://localhost:5000'); // 전역에 한 번만 선언
 
-ws.onopen = () => {
-  console.log('WebSocket 연결됨');
-};
+    ws.onopen = () => {
+      console.log('WebSocket 연결됨');
+    };
 
-ws.onmessage = (event) => {
-    try {
-      const msg = JSON.parse(event.data);
+    ws.onmessage = (event) => {
+        try {
+          const msg = JSON.parse(event.data);
 
-      // 로그 출력
-      const logParagraph = document.querySelector('#logArea p');
-      if (msg.type === 'log' && logParagraph) {
-        const logLine = document.createElement('div');
+          // 로그 출력
+          const logParagraph = document.querySelector('#logArea p');
+          if (msg.type === 'log' && logParagraph) {
+            const logLine = document.createElement('div');
 
-        const now = new Date();
-        const timeString = now.toLocaleTimeString('ko-KR', {
-          hour: '2-digit',
-          minute: '2-digit',
-          second: '2-digit',
-          hour12: false
-        });
+            const now = new Date();
+            const timeString = now.toLocaleTimeString('ko-KR', {
+              hour: '2-digit',
+              minute: '2-digit',
+              second: '2-digit',
+              hour12: false
+            });
 
-        logLine.textContent = `${timeString} :: ${msg.payload}`;
-        logParagraph.appendChild(logLine);
-        logParagraph.scrollTop = logParagraph.scrollHeight;
-        return;
-      }
+            logLine.textContent = `${timeString} :: ${msg.payload}`;
+            logParagraph.appendChild(logLine);
+            logParagraph.scrollTop = logParagraph.scrollHeight;
+            return;
+          }
 
-      // 점수 업데이트 메시지는 무시
-      if (msg.type === 'score-update') {
-        console.log('점수 메시지 수신:', msg.payload);
-        return;
-      }
+          // 점수 업데이트 메시지는 무시
+          if (msg.type === 'score-update') {
+            console.log('점수 메시지 수신:', msg.payload);
+            return;
+          }
 
-    } catch (e) {
-      // 일반 텍스트 메시지 (ex: coder-on)
-      const msg = event.data;
-      const coderStatus = document.getElementById('coderStatus');
+        } catch (e) {
+          // 일반 텍스트 메시지 (ex: coder-on)
+          const msg = event.data;
+          const coderStatus = document.getElementById('coderStatus');
 
-      if (msg === 'coder-on') {
-        coderStatus.innerText = 'ON';
-        coderStatus.style.backgroundColor = '#27C0A2';
-      } else if (msg === 'coder-off') {
-        coderStatus.innerText = 'OFF';
-        coderStatus.style.backgroundColor = '#131313';
-      } else if (
-        msg === 'base1-on' || msg === 'base1-off' ||
-        msg === 'base2-on' || msg === 'base2-off' ||
-        msg === 'base3-on' || msg === 'base3-off' ||
-        msg === 'outk-on' || msg === 'no-outk-on' ||
-        msg === 'homerun-on' || msg === '2homerun-on' ||
-        msg === '3homerun-on'
-      ) {
-        console.log('메시지 수신:', msg);
-      } else {
-        coderStatus.innerText = 'ERR';
-        coderStatus.style.backgroundColor = 'red';
-        console.error('알 수 없는 메시지:', msg);
-      }
-    }
-  };
+          if (msg === 'coder-on') {
+            coderStatus.innerText = 'ON';
+            coderStatus.style.backgroundColor = '#27C0A2';
+          } else if (msg === 'coder-off') {
+            coderStatus.innerText = 'OFF';
+            coderStatus.style.backgroundColor = '#131313';
+          } else if (
+            msg === 'base1-on' || msg === 'base1-off' ||
+            msg === 'base2-on' || msg === 'base2-off' ||
+            msg === 'base3-on' || msg === 'base3-off' ||
+            msg === 'outk-on' || msg === 'no-outk-on' ||
+            msg === 'homerun-on' || msg === '2homerun-on' ||
+            msg === '3homerun-on'
+          ) {
+            console.log('메시지 수신:', msg);
+          } else {
+            coderStatus.innerText = 'ERR';
+            coderStatus.style.backgroundColor = 'red';
+            console.error('알 수 없는 메시지:', msg);
+          }
+        }
+      };
 
     let isRectangleVisible = false;
 
@@ -121,6 +121,7 @@ ws.onmessage = (event) => {
       if (ws.readyState === WebSocket.OPEN) {
         const msg = isCoderOn ? 'coder-off' : 'coder-on';
         ws.send(msg);
+        console.log('메시지 전송:', msg);
         isCoderOn = !isCoderOn;
       }
     }
@@ -131,22 +132,11 @@ ws.onmessage = (event) => {
     function toggleBase1() {
       const button = document.querySelector('.base1');
 
-      if (!button) {
-        console.error('버튼을 찾을 수 없습니다!');
-        return; // 버튼이 없다면 더 이상 실행하지 않음
-      }
-
       if (ws.readyState === WebSocket.OPEN) {
         const msg = isBase1On ? 'base1-off' : 'base1-on';
         ws.send(msg);
-
         console.log('메시지 전송:', msg);
-
-        // 스타일 변경을 시도하기 전에 버튼이 제대로 선택되었는지 확인
-        if (button.style) {
-          button.style.backgroundColor = isBase1On ? '#c7c7c7' : '#27C0A2';
-        }
-
+        button.style.backgroundColor = isBase1On ? '#c7c7c7' : '#27C0A2';
         isBase1On = !isBase1On;
       } else {
         console.warn('WebSocket이 아직 연결되지 않았습니다.');
@@ -158,21 +148,11 @@ ws.onmessage = (event) => {
     function toggleBase2() {
       const button = document.querySelector('.base2');
 
-      if (!button) {
-        console.error('버튼을 찾을 수 없습니다!');
-        return; // 버튼이 없다면 더 이상 실행하지 않음
-      }
-
       if (ws.readyState === WebSocket.OPEN) {
         const msg = isBase2On ? 'base2-off' : 'base2-on';
         ws.send(msg);
-
         console.log('메시지 전송:', msg);
-
-        // 스타일 변경을 시도하기 전에 버튼이 제대로 선택되었는지 확인
-        if (button.style) {
-          button.style.backgroundColor = isBase2On ? '#c7c7c7' : '#27C0A2';
-        }
+        button.style.backgroundColor = isBase2On ? '#c7c7c7' : '#27C0A2';
 
         isBase2On = !isBase2On;
       } else {
@@ -185,21 +165,11 @@ ws.onmessage = (event) => {
     function toggleBase3() {
       const button = document.querySelector('.base3');
 
-      if (!button) {
-        console.error('버튼을 찾을 수 없습니다!');
-        return; // 버튼이 없다면 더 이상 실행하지 않음
-      }
-
       if (ws.readyState === WebSocket.OPEN) {
         const msg = isBase3On ? 'base3-off' : 'base3-on';
         ws.send(msg);
-
         console.log('메시지 전송:', msg);
-
-        // 스타일 변경을 시도하기 전에 버튼이 제대로 선택되었는지 확인
-        if (button.style) {
-          button.style.backgroundColor = isBase3On ? '#c7c7c7' : '#27C0A2';
-        }
+        button.style.backgroundColor = isBase3On ? '#c7c7c7' : '#27C0A2';
 
         isBase3On = !isBase3On;
       } else {

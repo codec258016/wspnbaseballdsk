@@ -1,10 +1,63 @@
-.blue-rectangle{
-    width: 450px;
-    height: 130px;
-    margin: 40px;
-    background-color: blue;
-    opacity: 0;
-    transition: opacity 0.1s;
+@font-face {
+  font-family: 'Paperlogy-8ExtraBold';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-8ExtraBold.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+}
+
+.coder{
+  width: 500px;
+  height: 100px;
+  margin: 40px;
+  background-color: #26b195;
+  border-radius: 5px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.tnsc{
+  width: 500px;
+  height: 80px;
+  background-color: #30ceae;
+  display: flex;
+  border-bottom: solid 2px #0d5042;
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+}
+.away-tn, .home-tn{
+  width: 160px;
+  height: 100%;
+  display: flex;
+}
+.away-tn>p, .home-tn>p{
+  font-family: 'Paperlogy-8ExtraBold';
+  font-size: 35px;
+  color: #0d5042;
+  margin: auto;
+}
+.home-tn>p{
+  color: #45ddbf;
+}
+.home-tn{
+  background-color: #16705d;
+}
+
+.away-sc, .home-sc{
+  width: 90px;
+  background-color: #45ddbf;
+  display: flex;
+}
+.home-sc{
+  background-color: #1f927b;
+  border: none;
+}
+.away-sc>p, .home-sc>p{
+  font-family: 'Paperlogy-8ExtraBold';
+  font-size: 35px;
+  color: #0d5042;
+  margin: auto;
+}
+.home-sc>p{
+  color: #45ddbf;
 }
 
 .red-rectangle{
@@ -18,8 +71,9 @@
 
 .fade-in {
     opacity: 1;
+
   }
 
 .fade-out {
-opacity: 0;
-}
+    opacity: 0;
+  }

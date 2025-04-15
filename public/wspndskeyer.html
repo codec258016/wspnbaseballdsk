@@ -7,99 +7,77 @@
   <link rel="stylesheet" href="css/keyer.css" />
 </head>
 <body>
-  <div id="coder"></div>
+  <div id="coder">
+  </div>
   <div id="base1"></div>
 
   <script>
     const ws = new WebSocket('ws://localhost:5000');
-    let coderRectangle = null;
-    let base1Rectangle = null;
-    let base2Rectangle = null;
+    let coderElement = null;
+    
+    // ✅ coder 생성 함수
+    function inject() {
+      const container = document.getElementById('coder');
+    
+      const div = document.createElement('div');
+      div.className = 'coder'; // 초기엔 fade-in 부여
+      div.innerHTML = `
+            <div class="tnsc">
+              <div class="away-tn"><p id="awayTeam">AWAY</p></div>
+              <div class="away-sc"><p id="awayScore">0</p></div>
+              <div class="home-tn"><p id="homeTeam">HOME</p></div>
+              <div class="home-sc"><p id="homeScore">0</p></div>
+            </div>
+      `;
+    
+      container.appendChild(div);
 
+      void div.offsetWidth;
+      div.classList.add('fade-in');
+
+      coderElement = div;
+    }
+    
+    // ✅ 메시지 수신 처리
     ws.onmessage = (event) => {
       const msg = event.data;
-      const coder = document.getElementById('coder');
-      const base1 = document.getElementById('base1');
-
+      const container = document.getElementById('coder');
+    
+      // coder-on: inject 실행
       if (msg === 'coder-on') {
-        const div = document.createElement('div');
-        div.className = 'blue-rectangle';
-        coder.appendChild(div);
-        coderRectangle = div;
-
-        // 강제로 리플로우를 유도하여 트랜지션이 작동하게 함
-        void div.offsetWidth;
-
-        div.classList.add('fade-in');
+        if (!coderElement) {
+          inject();
+        }
       }
-
-      //coder
+    
+      // coder-off: fade-out 후 제거
       if (msg === 'coder-off') {
-        if (coderRectangle) {
-          coderRectangle.classList.remove('fade-in');
-          coderRectangle.classList.add('fade-out');
-
-          // ✨ 애니메이션 후 제거
+        if (coderElement) {
+          coderElement.classList.remove('fade-in');
+          coderElement.classList.add('fade-out');
+    
           setTimeout(() => {
-            coder.removeChild(coderRectangle);
-            coderRectangle = null;
-          }, 500); // transition 시간과 일치
+            if (coderElement && container.contains(coderElement)) {
+              container.removeChild(coderElement);
+              coderElement = null;
+            }
+          }, 500);
         }
       }
-
-      //base1
-      if (msg === 'base1-on') {
-        const div = document.createElement('div');
-        div.className = 'red-rectangle';
-        base1.appendChild(div);
-        base1Rectangle = div;
-
-        // 강제로 리플로우를 유도하여 트랜지션이 작동하게 함
-        void div.offsetWidth;
-
-        div.classList.add('fade-in');
-      }
-
-      if (msg === 'base1-off') {
-        if (base1Rectangle) {
-          base1Rectangle.classList.remove('fade-in');
-          base1Rectangle.classList.add('fade-out');
-
-          // ✨ 애니메이션 후 제거
-          setTimeout(() => {
-            base1.removeChild(base1Rectangle);
-            base1Rectangle = null;
-          }, 500); // transition 시간과 일치
+    
+      // 점수 업데이트
+      try {
+        const data = JSON.parse(event.data);
+        if (data.type === 'score-update') {
+          document.getElementById('awayTeam').innerText = data.payload.awayTeam;
+          document.getElementById('homeTeam').innerText = data.payload.homeTeam;
+          document.getElementById('awayScore').innerText = data.payload.awayScore;
+          document.getElementById('homeScore').innerText = data.payload.homeScore;
         }
-      }
-
-
-      //base2
-      if (msg === 'base2-on') {
-        const div = document.createElement('div');
-        div.className = 'red-rectangle';
-        base1.appendChild(div);
-        base2Rectangle = div;
-
-        // 강제로 리플로우를 유도하여 트랜지션이 작동하게 함
-        void div.offsetWidth;
-
-        div.classList.add('fade-in');
-      }
-
-      if (msg === 'base2-off') {
-        if (base2Rectangle) {
-          base2Rectangle.classList.remove('fade-in');
-          base2Rectangle.classList.add('fade-out');
-
-          // ✨ 애니메이션 후 제거
-          setTimeout(() => {
-            base1.removeChild(base2Rectangle);
-            base2Rectangle = null;
-          }, 500); // transition 시간과 일치
-        }
+      } catch (e) {
+        // 문자열일 경우 무시
       }
     };
-  </script>
+    </script>
 </body>
 </html>
