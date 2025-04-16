@@ -22,7 +22,7 @@ wspndskeyer.html 수정 시 서버 재시작 해야 적용.
 
 ## WSPN DSK CONTROL에서 현재 작동되는 기능
 
-(L)WSPN DSK CONTROL / (R)WSPN DSK
+(L)WSPN DSK CONTROL / (R)WSPN DSK 코더
 
 ![컴포지션 4_00000](https://github.com/user-attachments/assets/3a7d68f6-d9c9-463f-9c98-35e2cf26bbb7)
 
@@ -31,11 +31,10 @@ wspndskeyer.html 수정 시 서버 재시작 해야 적용.
 
 ## 로드맵
 단기 로드맵
-1. 베이스 표시 제작
-2. 코더의 아래 빈 공간에 투수 및 타자 정보 표시 제작
-3. 삼진 아웃K와 노아웃K, 홈런 애니메이션 제작 (영상으로 만들지, css 애니메이션 사용할 지 미정)
-4. script 영역을 js파일로 분리: 스크립트 길어지면서 관리효율 떨어짐
-6. css 최적화: class로 UI 요소 규격화 후html에서 class 두개 사용
+1. 코더의 아래 빈 공간에 투수 및 타자 정보 표시 제작
+2. 삼진 아웃K와 노아웃K, 홈런 애니메이션 제작 (영상으로 만들지, css 애니메이션 사용할 지 미정)
+3. script 영역을 js파일로 분리: 스크립트 길어지면서 관리효율 떨어짐
+4. css 최적화: class로 UI 요소 규격화 후html에서 class 두개 사용
 
    (ex. class="coder-btn 15px")
 
