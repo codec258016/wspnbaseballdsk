@@ -22,16 +22,12 @@ wspndskeyer.html 수정 시 서버 재시작 해야 적용.
 
 ## WSPN DSK CONTROL에서 현재 작동되는 기능
 
-WSPN DSK CONTROL
+(L)WSPN DSK CONTROL / (R)WSPN DSK
 
-![image](https://github.com/user-attachments/assets/dbaf3422-43bc-4d70-b773-8e77237bcb0f)
+![컴포지션 4_00000](https://github.com/user-attachments/assets/3a7d68f6-d9c9-463f-9c98-35e2cf26bbb7)
 
-WSPN DSK 코더
-
-![image](https://github.com/user-attachments/assets/61dd75c9-431b-49fe-810f-d9ed1a1b287d)
-
-1. CODER ON/OFF 시 코더 페이드 인 / 아웃
-2. 점수, 팀명 입력 후 GO 버튼을 누르면 실시간으로 코더에 적용
+1. CODER ON/OFF 시 코더 페이드 / 와이프 인 아웃
+2. 팀명, 점수, B/S/O 카운트, 도루, 이닝 및 TOP/BOTTM 표시
 
 ## 로드맵
 단기 로드맵
