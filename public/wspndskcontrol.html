@@ -12,36 +12,56 @@
     <h1>WSPN DSK</h1><span class="topline"></span><p>Baseball</p>
     <button class="dsk_open" onclick="opendsker()">CG창 열기</button>
   </div>
-  <div class="coder-ctrl">
-    <button class="coder-btn" onclick="toggleCoder()">CODER ON/OFF</button>
-    <div class="coder-status" id="coderStatus">OFF</div>
-    <span class="line"></span>
-    <p style="color: black;">A</p>
-    <input type="number" id="away-sc" value="0" min="0">
-    <input type="text" id="away-tn" placeholder="AWAY" ><p>:</p>
-    <input type="text" id="home-tn" placeholder="HOME"><p>:</p>
-    <input type="number" id="home-sc" value="0" min="0">
-    <p style="color: #27C0A2;">H</p>
-    <button class="coder-go" onclick="Coderchange()">GO</button>
-  </div>
-  <div class="map">
-    <img src="src/img/map.png">
-    <button class="base2" onclick="toggleBase2()"></button>
-    <div class="bases">
-      <button class="base3" onclick="toggleBase3()"></button>
-      <button class="base1" onclick="toggleBase1()"></button>
+  <div class="full">
+    <div class="leftside">
+      <div class="coder-ctrl">
+        <button class="coder-btn" onclick="toggleCoder()">CODER ON/OFF</button>
+        <div class="coder-status" id="coderStatus">OFF</div>
+        <span class="line"></span>
+        <p style="color: black;">A</p>
+        <input type="number" id="away-sc" value="0" min="0">
+        <input type="text" id="away-tn" placeholder="AWAY" ><p>:</p>
+        <input type="text" id="home-tn" placeholder="HOME" style="margin-left: 10px;">
+        <input type="number" id="home-sc" value="0" min="0" style="margin-right: 0;">
+        <p style="color: #27C0A2;">H</p>
+        <button class="coder-go" onclick="Coderchange()">GO</button>
+      </div>
+      <div class="coder-ctrl">
+        <p>INNING:</p>
+        <input type="number" id="inningnum" min="1" value="1">
+        <select id="matchstate" class="matchstate">
+          <option value="top">TOP</option>
+          <option value="bottom">BTM</option>
+        </select>
+        <span class="line"></span>
+        <p>B:</p>
+        <input type="number" id="ballcount" min="0" max="3" value="0">
+        <p>S:</p>
+        <input type="number" id="strikecount" min="0" max="3" value="0">
+        <p>O:</p>
+        <input type="number" id="outcount" min="0" max="3" value="0">
+        <button class="inning-update" onclick="InningUpdate()">Update</button>
+      </div>
+      <div class="map">
+        <img src="src/img/map.png">
+        <button class="base2 basebtn" onclick="toggleBase2()"></button>
+        <div class="base2-3-block">
+          <button class="base3 basebtn" onclick="toggleBase3()"></button>
+          <button class="base1 basebtn" onclick="toggleBase1()"></button>
+        </div>
+      </div>
+      <div class="state">
+        <button class="K" onclick="toggleOutK()">Out K<br><b>3sec Auto</b></button>
+        <button class="K" onclick="toggleNoOutK()">No Out K<br><b>3sec Auto</b></button>
+        <button class="homerun" onclick="toggleHomrun()">Home-run<br><b>3sec Auto</b></button>
+        <button class="homerun" onclick="toggle2Homrun()">2-Home-run<br><b>3sec Auto</b></button>
+        <button class="homerun threehomerun" onclick="toggle3Homrun()">3-Home-run<br><b>3sec Auto</b></button>
+      </div>
+      <h1 class="title">Event Log</h1>
+      <div id="logArea">
+        <p></p>
+      </div>
     </div>
-  </div>
-  <div class="state">
-    <button class="K" onclick="toggleOutK()">Out K<br><b>3sec Auto</b></button>
-    <button class="K" onclick="toggleNoOutK()">No Out K<br><b>3sec Auto</b></button>
-    <button class="homerun" onclick="toggleHomrun()">Home-run<br><b>3sec Auto</b></button>
-    <button class="homerun" onclick="toggle2Homrun()">2-Home-run<br><b>3sec Auto</b></button>
-    <button class="homerun threehomerun" onclick="toggle3Homrun()">3-Home-run<br><b>3sec Auto</b></button>
-  </div>
-  <h1 class="title">Event Log</h1>
-  <div id="logArea">
-    <p></p>
   </div>
 
   <script>
@@ -196,6 +216,30 @@
           homeTeam,
           awayScore,
           homeScore
+        }
+      };
+
+      if (ws.readyState === WebSocket.OPEN) {
+        ws.send(JSON.stringify(message));
+      }
+    }
+
+    /*이닝 정보 업데이트*/
+    function InningUpdate() {
+      const inningNum = document.getElementById('inningnum').value;
+      const matchState = document.getElementById('matchstate').value;
+      const ballCount = document.getElementById('ballcount').value;
+      const strikeCount = document.getElementById('strikecount').value;
+      const outCount = document.getElementById('outcount').value;
+
+      const message = {
+        type: 'inning-update',
+        payload: {
+          inningNum,
+          matchState,
+          ballCount,
+          strikeCount,
+          outCount
         }
       };
 
