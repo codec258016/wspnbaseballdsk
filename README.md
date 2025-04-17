@@ -41,7 +41,7 @@ wspndskeyer.html 수정 시 서버 재시작 해야 적용.
 3. script 영역을 js파일로 분리: 스크립트 길어지면서 관리효율 떨어짐
 4. css 최적화: class로 UI 요소 규격화 후html에서 class 두개 사용 (진행중)
 
-   (ex. class="coder-btn 15px")
+   ⮡ (ex. class="coder-btn 15px")
 
 
 장기 로드맵
