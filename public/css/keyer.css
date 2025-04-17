@@ -160,11 +160,12 @@
 }
 
 .k{
-  width: 130.5px;
+  width: 128.5px;
   height: 108px;
   margin: -1px -130px;
   overflow: hidden;
   border-radius: 0 5px 5px 0;
+  border-left: 2px solid #0d5042;
   z-index: 1;
 }
 .k>video{

@@ -19,28 +19,45 @@ body{
     font-family: 'Paperlogy-8ExtraBold';
 }
 
+/*button*/
 button{
-    width: 100px;
     height: 50px;
     border-radius: 3px;
     border: none;
     background-color: #27C0A2;
 
     font-family: 'Paperlogy-8ExtraBold';
+    font-size: 15px;
     cursor: pointer;
 }
+.btn100px{
+    width: 100px;
+}
+.btn120px{
+    width: 120px;
+}
+.btn140px{
+    width: 140px;
+}
+.btn160px{
+    width: 160px;
+}
+.btnflex{
+    padding: auto 20px;
+}
+
 input[type="text"], input[type="number"], select{
     height: 40px;
     font-family: 'Paperlogy-8ExtraBold';
-    font-size: 20px;
+    font-size: 17px;
     text-align: center;
     margin: auto 10px auto 0;
 }
 input[type="text"]{
-    width: 100px;
+    width: 90px;
 }
 input[type="number"]{
-    width: 45px;
+    width: 40px;
 }
 option{
     font-family: 'Paperlogy-8ExtraBold';
@@ -130,20 +147,11 @@ p{
 .coder-ctrl>p{
     margin: auto 10px;
 }
-.coder-go{
-    width: 70px;
-    border-radius: 3px;
-    border: none;
-    background-color: #27C0A2;
 
-    font-size: 15px;
-    cursor: pointer;
+.inning-update, .reset{
+    margin: auto 10px auto auto;
 }
-
-.inning-update{
-    width: 150px;
-    font-size: 15px;
-    cursor: pointer;
+.reset{
     margin: auto 0px auto auto;
 }
 
@@ -174,7 +182,7 @@ p{
     z-index: 1;
 }
 .base2-3-block{
-    width: 40%;
+    width: 767.5px;
     position: absolute;
     display: flex;
     margin-top: 224.5px;

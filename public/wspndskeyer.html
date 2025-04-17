@@ -210,36 +210,37 @@
       }
     };
 
+    // outk/no-outk 비디오 재생
     function playVideo(videoId) {
       const video = document.getElementById(videoId);
       if (!video) return;
 
-      // ⛔ 먼저 재생 중인 영상은 모두 숨김
+      // 먼저 재생 중인 영상은 모두 숨김
       hideAllVideos();
 
-      // ✅ display: block으로 먼저 보이게 함
+      // display: block으로 먼저 보이게 함
       video.style.display = 'block';
       video.style.opacity = '0'; // 초기 투명
 
       video.pause();
       video.currentTime = 0;
 
-      // ✅ 강제 리플로우 유도
+      // 강제 리플로우 유도
       void video.offsetWidth;
 
-      // ✅ 한 프레임 뒤에 opacity = 1 (트리거)
+      // 한 프레임 뒤에 opacity = 1 (트리거)
       requestAnimationFrame(() => {
         video.style.opacity = '1';
         video.play();
       });
 
-      // ✅ 3초 후 페이드 아웃 + 0.5초 뒤 숨기기
+      // 5초 후 페이드 아웃 + 0.5초 뒤 숨기기
       setTimeout(() => {
         video.style.opacity = '0';
         setTimeout(() => {
           video.style.display = 'none';
         }, 500); // CSS transition 시간과 일치
-      }, 6000);
+      }, 5000);
     }
 
     function hideAllVideos() {
