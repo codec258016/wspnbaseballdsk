@@ -19,7 +19,7 @@
   overflow: hidden;
   opacity: 1; /*디자인 수정 시 1*/
   transition: width 0.3s ease, opacity 0.3s ease;
-  display: block; /*디자인 수정 시 block*/
+  display: none;
 }
 .tnsc{
   width: 630px;
@@ -28,6 +28,8 @@
   display: flex;
   border-bottom: solid 2px #0d5042;
   border-radius: 5px 5px 5px 0;
+
+  overflow: hidden;
 }
 .away-tn, .home-tn{
   width: 160px;
@@ -68,9 +70,8 @@
 
 .matchstate{
   width: 130px;
-  height: 107px;
+  height: 80px;
   background-color: #0d5042;
-  border-radius: 0 5px 5px 0;
   display: flex;
 }
 
@@ -101,10 +102,6 @@
   text-align: center;
   margin: 5px;
 }
-.icon{
-  width: 20px;
-  margin: 10px 5px -3px 5px;
-}
 
 .base-out-block{
   width: 80px;
@@ -120,7 +117,7 @@
 .base2-3-block{
   width: 80px;
   display: flex;
-  margin: 0 -0.5px;
+  margin: 0 1px;
 }
 
 .out-block{
@@ -136,30 +133,10 @@
   margin: auto;
 }
 
-.ball-strike-block{
-  width: 80px;
-  display: flex;
-}
-#ballCount{
-  font-family: 'Paperlogy-8ExtraBold';
-  color: #fff;
-  margin: 12px 5px -4px auto;
-}
-.dash{
-  font-family: 'Paperlogy-8ExtraBold';
-  color: #fff;
-  margin: 12px 0 -4px 0;
-}
-#strikeCount{
-  font-family: 'Paperlogy-8ExtraBold';
-  color: #fff;
-  margin: 12px auto -4px 5px;
-}
-
 .player{
   width: 500px;
   height: 25px;
-  border-radius: 0 0 0 5px;
+  border-radius: 0 0 5px 5px;
   overflow: hidden;
   display: flex;
 }
