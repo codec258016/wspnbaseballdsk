@@ -115,7 +115,10 @@
   height: 15px;
   background-color: #1d836e;
   rotate: 45deg;
-  margin: 0px auto;
+  margin: auto;
+}
+#base2{
+  margin: 0 0 0 32px;
 }
 .base2-3-block{
   width: 80px;
@@ -156,6 +159,23 @@
   margin: 12px auto -4px 5px;
 }
 
+.k{
+  width: 130.5px;
+  height: 108px;
+  margin: -1px -130px;
+  overflow: hidden;
+  border-radius: 0 5px 5px 0;
+  z-index: 1;
+}
+.k>video{
+  width: 133px;
+  margin: 0;
+  display: none;
+  transition: opacity 0.2s ease-in-out;
+  opacity: 0;
+}
+
+
 .player{
   width: 500px;
   height: 25px;
@@ -180,7 +200,7 @@
   margin: 2px 10px;
 }
 
-.fade-in {
+.coder-fade-in {
   width: 635px;
   opacity: 1;
 }
