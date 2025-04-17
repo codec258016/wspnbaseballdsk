@@ -22,7 +22,7 @@ wspndskeyer.html 수정 시 서버 재시작 해야 적용.
 
 ## WSPN DSK CONTROL에서 현재 작동되는 기능
 
-(L)WSPN DSK CONTROL / (R)WSPN DSK 코더
+(좌)WSPN DSK CONTROL / (우)WSPN DSK 코더
 
 ![컴포지션 4_00000](https://github.com/user-attachments/assets/3a7d68f6-d9c9-463f-9c98-35e2cf26bbb7)
 
