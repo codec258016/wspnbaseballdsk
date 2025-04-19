@@ -37,9 +37,7 @@ wspndskeyer.html 수정 시 새로고침 해야 적용
 ## 로드맵
 단기 로드맵
 1. 코더의 아래 빈 공간에 투수 및 타자 정보 표시 제작
-2. 홈런 애니메이션 제작
-3. script 영역을 js파일로 분리: 스크립트 길어지면서 관리효율 떨어짐
-4. css 최적화: class로 UI 요소 규격화 후html에서 class 두개 사용 (진행중)
+2. css 최적화: class로 UI 요소 규격화 후html에서 class 두개 사용 (진행중)
 
    > (ex. class="coder-btn 15px")
 
