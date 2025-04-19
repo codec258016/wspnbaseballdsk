@@ -27,7 +27,7 @@ wspndskeyer.html 수정 시 새로고침 해야 적용
 ![컴포지션 4_00000](https://github.com/user-attachments/assets/3a7d68f6-d9c9-463f-9c98-35e2cf26bbb7)
 
 1. CODER ON/OFF 시 코더 페이드 / 와이프 인 아웃
-2. 팀명, 점수, B/S/O 카운트, 도루, 이닝 및 TOP/BOTTM 표시
+2. 팀명, 점수, B/S/O 카운트, 도루, 이닝 및 TOP/BOTTOM 표시
 3. 삼진 아웃K와 노아웃K, 솔로 · 2 · 3 홈런 애니메이션(영상 재생 방식)
 5. B/S/O 카운트, 이닝 및 TOP/BOTTM 내용 변경 시 'update'버튼 강조 (클릭 시 원색으로 복구)
 
