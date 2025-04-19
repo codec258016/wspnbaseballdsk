@@ -16,7 +16,7 @@ OBS에서 사용 시 소스 영역에서 '+' > '브라우저' 선택 후
 
 WSPN DSK CONTROLLER에 있는 'CG창 열기' 클릭 시 ``` http://localhost:5000/wspndskeyer.html ``` 이 브라우저에서 열림
 
-wspndskeyer.html 수정 시 서버 재시작 해야 적용.
+wspndskeyer.html 수정 시 새로고침 해야 적용
 
 이때 WSPN DSK CONTROLLER가 새로 열리는데 기존에 열려있던거 새로고침 후 사용도 가능
 
@@ -29,9 +29,10 @@ wspndskeyer.html 수정 시 서버 재시작 해야 적용.
 1. CODER ON/OFF 시 코더 페이드 / 와이프 인 아웃
 2. 팀명, 점수, B/S/O 카운트, 도루, 이닝 및 TOP/BOTTM 표시
 3. 삼진 아웃K와 노아웃K 애니메이션(영상 재생 방식)
-4. B/S/O 카운트, 이닝 및 TOP/BOTTM 내용 변경 시 'update'버튼 강조 (클릭 시 원색으로 복구) 및 B/S/O 카운트 초기화 버튼 추가
+4. B/S/O 카운트, 이닝 및 TOP/BOTTM 내용 변경 시 'update'버튼 강조 (클릭 시 원색으로 복구)
 
-   (내용 변경 후 DSK로 넘기는걸 깜빡하는 경우를 없애기 위한 조치)
+   ⮡  (내용 변경 후 DSK로 넘기는걸 깜빡하는 경우를 없애기 위한 조치)
+6. B/S/O 카운트 초기화 버튼 추가
 
 ## 로드맵
 단기 로드맵
@@ -40,7 +41,7 @@ wspndskeyer.html 수정 시 서버 재시작 해야 적용.
 3. script 영역을 js파일로 분리: 스크립트 길어지면서 관리효율 떨어짐
 4. css 최적화: class로 UI 요소 규격화 후html에서 class 두개 사용 (진행중)
 
-   (ex. class="coder-btn 15px")
+   ⮡ (ex. class="coder-btn 15px")
 
 
 장기 로드맵
