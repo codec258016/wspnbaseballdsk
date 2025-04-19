@@ -210,11 +210,10 @@ function InningUpdate() {
   document.getElementById('updateBtn').style.backgroundColor = '';
 }
 
-/*BSO 초기화 및 채인지 버튼 강조*/
+/*BS 초기화 및 채인지 버튼 강조*/
 function Reset() {
   document.getElementById('ballcount').value = 0;
   document.getElementById('strikecount').value = 0;
-  document.getElementById('outcount').value = 0;
 
     // ✅ Update 버튼을 노란색으로 표시
     const updateBtn = document.getElementById('updateBtn');

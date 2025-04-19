@@ -149,7 +149,7 @@ p{
 }
 
 .inning-update, .reset{
-    margin: auto 10px auto auto;
+    margin: auto 0px auto auto;
 }
 .reset{
     margin: auto 0px auto auto;

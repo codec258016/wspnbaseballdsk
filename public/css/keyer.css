@@ -12,14 +12,14 @@
 }
 
 .coder{
-  width: 635px; /*디자인 수정 시 635px*/
+  width: 635px;
   height: 110px;
   margin: 40px;
   border-radius: 5px;
   overflow: hidden;
-  opacity: 1; /*디자인 수정 시 1*/
+  opacity: 1;
   transition: width 0.3s ease, opacity 0.3s ease;
-  display: block; /*디자인 수정 시 block*/
+  display: block;
 }
 .tnsc{
   width: 630px;
@@ -176,6 +176,21 @@
   opacity: 0;
 }
 
+.homerun{
+  width: 630px;
+  height: 108px;
+  margin: -1px -501px;
+  overflow: hidden;
+  border-radius: 5px;
+  z-index: 1;
+}
+.homerun>video{
+  width: 632px;
+  margin: 0;
+  display: none;
+  transition: opacity 0.2s ease-in-out;
+  opacity: 0;
+}
 
 .player{
   width: 500px;
